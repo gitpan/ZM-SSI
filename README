@@ -2,7 +2,7 @@ NAME
     ZM::SSI - SSI parser for CGI
 
 VERSION
-    SSI.pm v 0.0.4
+    SSI.pm v 0.0.5
 
 DESCRIPTION
     Parsing SSI from Perl script. Understand: <!--#include file="..." -->
@@ -18,5 +18,5 @@ COPYRIGHT
     Copyright 2002 Zet Maximum
 
 AUTHOR
-    Maxim Kashliak Zet Maximum ltd. http://www.zmaximum.ru/
+    Zet Maximum ltd. http://www.zmaximum.ru/
 

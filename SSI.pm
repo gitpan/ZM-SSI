@@ -1,5 +1,5 @@
 package ZM::SSI;
-$ZM::SSI::VERSION = '0.0.4';
+$ZM::SSI::VERSION = '0.0.5';
 use strict;
 
 sub parse
@@ -28,6 +28,18 @@ sub include
 sub execcgi
 {
 	my $file=shift;
+	if($file=~/^([^?]*)\?(.*)/) # Cut Query string
+	{
+		$file=$1;
+		if($ENV{QUERY_STRING} eq '')
+		{
+			$ENV{QUERY_STRING}=$2;
+		}
+		else
+		{
+			$ENV{QUERY_STRING}.='&'.$2;
+		}
+	}
 	if($file=~/^\//)
     {
         $file=$ENV{DOCUMENT_ROOT}.$file;
@@ -53,7 +65,7 @@ ZM::SSI - SSI parser for CGI
 
 =head1 VERSION
 
-SSI.pm v 0.0.4
+SSI.pm v 0.0.5
 
 =head1 DESCRIPTION
 
@@ -81,7 +93,6 @@ Copyright 2002 Zet Maximum
 
 =head1 AUTHOR
 
-Maxim Kashliak
 Zet Maximum ltd.
 http://www.zmaximum.ru/
 
